@@ -11,3 +11,60 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.search-btn {
+  color: white;
+  border: 1px solid white;
+  background: transparent;
+}
+
+.search-btn:hover {
+  color: #020242;
+  background: white;
+}
+.dropdown-item {
+  color: white;
+  background: #020242;
+}
+.dropdown-item:hover {
+  color: white;
+  background: rgb(62, 2, 2);
+}
+.custom-btn {
+  background-color: #020242;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #020242; /* lighter shade */
+  color: aliceblue;
+  transform: scale(1.05);    /* slight zoom */
+   box-shadow: 0 0 10px #020242;
+}
+
+.custom-btn:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
