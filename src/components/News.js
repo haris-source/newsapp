@@ -23,8 +23,8 @@ export class News extends Component {
       this.props.setProgress(10);
       this.setState({ loading: true });
       let url = this.props.searchQuery
-        ? `https://newsapi.org/v2/everything?q=${this.props.searchQuery}&apiKey=bd764f405a874c42a5069cece067781d&page=${this.state.page}&pageSize=${this.props.pageSize}`
-        : `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=bd764f405a874c42a5069cece067781d&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        ? `https://newsapi.org/v2/everything?q=${this.props.searchQuery}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`
+        : `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
 
       let data = await fetch(url);
        this.props.setProgress(40);
@@ -48,13 +48,19 @@ export class News extends Component {
     this.updatedNews();
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.searchQuery !== this.props.searchQuery) {
-      this.setState({ page: 1 }, () => {
+componentDidUpdate(prevProps) {
+  if (
+    prevProps.searchQuery !== this.props.searchQuery ||
+    prevProps.category !== this.props.category 
+  ) {
+    this.setState(
+      { page: 1, article: [], totalArticles: 0 },
+      () => {
         this.updatedNews();
-      });
-    }
+      }
+    );
   }
+}
 fetchMoreData = async () => {
   try {
    
@@ -64,8 +70,8 @@ fetchMoreData = async () => {
         const { page } = this.state;
 
         let url = this.props.searchQuery
-          ? `https://newsapi.org/v2/everything?q=${this.props.searchQuery}&apiKey=bd764f405a874c42a5069cece067781d&page=${page}&pageSize=${this.props.pageSize}`
-          : `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=bd764f405a874c42a5069cece067781d&page=${page}&pageSize=${this.props.pageSize}`;
+          ? `https://newsapi.org/v2/everything?q=${this.props.searchQuery}&apiKey=${this.props.apiKey}&page=${page}&pageSize=${this.props.pageSize}`
+          : `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${page}&pageSize=${this.props.pageSize}`;
 
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -94,7 +100,7 @@ fetchMoreData = async () => {
   render() {
     return (<>
       
-        <h1 className="text-center my-5">NewsFlow - Top Headlines</h1>
+        <h1 className="text-center " style={{margin:'35px',marginTop:'90px'}}>NewsFlow - Top Headlines</h1>
 
         {/* {this.state.loading && <SpinnerT />} */}
         <InfiniteScroll
