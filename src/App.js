@@ -34,14 +34,16 @@ const [searchQuery, setSearchQuery] = useState("");
        
       />
         <Routes>
-          <Route path='/' element={<News setProgress={setProgress} apiKey={apiKey} key="general" pageSize={9} country="us" category="general" searchQuery={searchQuery} />} />
+          <Route path='/' element={<News setProgress={setProgress} apiKey={apiKey} key="top" pageSize={9} country="us" category="top" searchQuery={searchQuery} />} />
           <Route path='/business' element={<News setProgress={setProgress} apiKey={apiKey} key="business" pageSize={9} country="us" category="business" searchQuery={searchQuery} />} />
           <Route path='/entertainment' element={<News setProgress={setProgress} apiKey={apiKey} key="entertainment" pageSize={9} country="us" category="entertainment" searchQuery={searchQuery} />} />
-          <Route path='/general' element={<News setProgress={setProgress} apiKey={apiKey} key="general2" pageSize={9} country="us" category="general" searchQuery={searchQuery} />} />
+          <Route path='/general' element={<News setProgress={setProgress} apiKey={apiKey} key="top2" pageSize={9} country="us" category="top" searchQuery={searchQuery} />} />
           <Route path='/health' element={<News setProgress={setProgress} apiKey={apiKey} key="health" pageSize={9} country="us" category="health" searchQuery={searchQuery} />} />
           <Route path='/science' element={<News setProgress={setProgress} apiKey={apiKey} key="science" pageSize={9} country="us" category="science" searchQuery={searchQuery} />} />
           <Route path='/sports' element={<News setProgress={setProgress} apiKey={apiKey} key="sports" pageSize={9} country="us" category="sports" searchQuery={searchQuery} />} />
           <Route path='/technology' element={<News setProgress={setProgress} apiKey={apiKey} key="technology" pageSize={9} country="us" category="technology" searchQuery={searchQuery} />} />
+          <Route path='/politics' element={<News setProgress={setProgress} apiKey={apiKey} key="technology" pageSize={9} country="us" category="politics" searchQuery={searchQuery} />} />
+          <Route path='/crime' element={<News setProgress={setProgress} apiKey={apiKey} key="technology" pageSize={9} country="us" category="crime" searchQuery={searchQuery} />} />
           <Route path='/about' element={<About />} />
         </Routes>
       </Router>

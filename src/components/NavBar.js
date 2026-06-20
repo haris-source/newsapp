@@ -83,6 +83,8 @@ const NavBar = (props) => {
                 <li><NavLink className="dropdown-item" onClick={() => props.onSearch("")} to="/science">Science</NavLink></li>
                 <li><NavLink className="dropdown-item" onClick={() => props.onSearch("")} to="/sports">Sports</NavLink></li>
                 <li><NavLink className="dropdown-item" onClick={() => props.onSearch("")} to="/technology">Technology</NavLink></li>
+                <li><NavLink className="dropdown-item" onClick={() => props.onSearch("")} to="/politics">Technology</NavLink></li>
+                <li><NavLink className="dropdown-item" onClick={() => props.onSearch("")} to="/crime">Technology</NavLink></li>
               </ul>
             </li>
 

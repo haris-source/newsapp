@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function About() {
   return (
-     <div className="container my-3" id="about" >
+     <div className="text-center" style={{margin:'35px',marginTop:'90px'}} id="about" >
       <h1>About Us</h1>
       <div className="accordion" id="accordionPanelsStayOpenExample">
   <div className="accordion-item">
